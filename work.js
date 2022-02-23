@@ -17,9 +17,11 @@ const main_types = Object.keys(colors);
 
 const poke_container = document.getElementById('poke_container');
 const fetchPokemons = async () => {
+	const array = [];
 	for (let i = 1; i <= 40; i++) {
-		await getPokemon(i);
+		array.push(getPokemon(i));
 	}
+	await Promise.all(array);
 };
 
 const getPokemon = async id => {
